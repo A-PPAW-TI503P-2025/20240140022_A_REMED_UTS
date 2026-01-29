@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">📚 Library Management</h1>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <h2>Welcome to Library Management System</h2>
+            <p>Klik pada buku yang tersedia untuk meminjam dengan tracking lokasi otomatis</p>
+        </section>
+
+        <section class="search-section">
+            <input type="text" id="searchInput" placeholder="Cari buku berdasarkan judul atau penulis..." class="search-input">
+        </section>
+
+        <section class="books-section">
+            <h3>Daftar Buku Tersedia</h3>
+            <div id="loadingSpinner" class="spinner">Loading books...</div>
+            <div id="booksGrid" class="books-grid"></div>
+            <div id="errorMessage" class="error-message" style="display: none;"></div>
+        </section>
+    </main>
+
+    <!-- Borrow Modal -->
+    <div id="borrowModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Pinjam Buku</h3>
+            <div id="borrowBookInfo" style="margin-bottom: 1.5rem;"></div>
+            <form id="borrowForm" class="book-form">
+                <input type="hidden" id="borrowBookId">
+                <div class="form-group">
+                    <label for="userId">User ID *</label>
+                    <input type="number" id="userId" required placeholder="Masukkan User ID Anda">
+                </div>
+                <div class="location-info">
+                    <h4>📍 Lokasi Anda</h4>
+                    <p id="locationStatus">Mendeteksi lokasi...</p>
+                    <p id="locationCoords" style="font-size: 0.9rem; color: #6B7280;"></p>
+                </div>
+                <button type="submit" class="btn btn-success" id="borrowSubmitBtn">Pinjam Buku</button>
+            </form>
+            <div id="borrowMessage" class="message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Library Management System - UTS Remedial PAW</p>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>
